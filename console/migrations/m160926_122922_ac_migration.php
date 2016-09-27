@@ -11,7 +11,8 @@ class m160926_122922_ac_migration extends Migration
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
-
+        
+// Таблица Брэнд
         $this->createTable('{{%brand}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
@@ -19,6 +20,12 @@ class m160926_122922_ac_migration extends Migration
             'logo' => $this->string()->notNull(),
         ], $tableOptions);
         
+        $renault = array('name' => 'Renault', 'slug' => 'renault', 'logo' => 'logo_renault');
+        $this->insert('brand', $renault);
+        $hyundai = array('name' => 'Hyundai', 'slug' => 'hyundai', 'logo' => 'logo_hyundai');
+        $this->insert('brand', $hyundai);
+        
+// Таблица Модель      
         $this->createTable('{{%model}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
@@ -29,11 +36,13 @@ class m160926_122922_ac_migration extends Migration
             'brand' => $this->string()->notNull(),
         ], $tableOptions);
         
+// Таблица Кузов     
         $this->createTable('{{%carcase}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
         ], $tableOptions);
         
+// Таблица Заявки  
         $this->createTable('{{%request}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),

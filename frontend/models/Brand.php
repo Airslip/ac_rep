@@ -1,18 +1,12 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
-/**
- * This is the model class for table "brand".
- *
- * @property integer $id
- * @property string $name
- * @property string $slug
- * @property string $logo
- */
-class Brand extends \yii\db\ActiveRecord
+class Brand extends ActiveRecord
 {
-
+    
 }
+
+?>
