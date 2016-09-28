@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Автодилер',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -48,6 +48,10 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+            $menuItems[] = ['label' => 'Brands', 'url' => ['/brand']];
+            $menuItems[] = ['label' => 'Models', 'url' => ['/model']];
+            $menuItems[] = ['label' => 'Carcases', 'url' => ['/carcase']];
+            $menuItems[] = ['label' => 'Requests', 'url' => ['/request']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

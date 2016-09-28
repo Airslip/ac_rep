@@ -11,10 +11,13 @@ $this->title = 'Автодилер';
 
     <div class="body-content">
 
-        <div class="row">
+        <div>
+            <h3 id="choose_a">Выберите бренд</h3>
+            <ul id="brand_list">
             <?php foreach ($brands as $brand) { ?>
-                <p><a class="btn btn-default" href="<?=Yii::$app->urlManager->createUrl(["site/model", 'brand' => $brand->slug])?>"><?=$brand->name?></a></p>
+                <li><a class="btn btn-default" href="<?=Yii::$app->urlManager->createUrl(["site/model", 'brand' => $brand->slug])?>"><img src="images/logo_renault.png"><?=$brand->name?></a></li>
             <?php } ?>
+            </ul>
         </div>
 
     </div>

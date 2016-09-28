@@ -109,3 +109,17 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+
+
+#choose_a {
+    text-align: center;
+}
+
+#brand_list {
+    text-align: center;
+}
+
+#brand_list li {
+    text-decoration: none;
+    display: inline;   
+}

@@ -6,6 +6,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\Brand;
+use common\models\Model;
+use common\models\Request;
 
 /**
  * Site controller
@@ -94,5 +97,21 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    
+    public function actionBrand()
+    {
+        $model = new common\models\Brand();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('brand', [
+            'model' => $model,
+        ]);
     }
 }

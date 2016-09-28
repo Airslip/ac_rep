@@ -54,7 +54,7 @@ class m160926_122922_ac_migration extends Migration
         
         $logan = array('name' => 'Logan', 'slug' => 'logan', 'photo' => 'photo_logan', 'carcase_type' => 'седан', 'description' => 'Описание', 'brand' => 'Renault');
         $this->insert('model', $logan);
-        $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'Хэтчбэк', 'description' => 'Описание', 'brand' => 'Renault');
+        $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'хэтчбэк', 'description' => 'Описание', 'brand' => 'Renault');
         $this->insert('model', $sandero);
         
 // Таблица Заявки  
@@ -71,15 +71,6 @@ class m160926_122922_ac_migration extends Migration
 //        $this->createIndex('FK_request_model', '{{%request}}', 'model');
 //        $this->addForeignKey('FK_request_model', '{{%request}}', 'model', '{{%model}}', 'name', 'SET NULL', 'CASCADE');
         
-// Таблица Юзеров     
-        $this->createTable('{{%user}}', [
-            'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull(),
-            'password' => $this->string()->notNull()
-        ], $tableOptions);
-        
-        $admin = array('name' => 'admin', 'password' => 'admin');
-        $this->insert('user', $admin);
     }
     
     public function safeDown()
