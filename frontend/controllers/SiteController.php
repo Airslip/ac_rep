@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Brand;
+use frontend\models\Model;
 
 /**
  * Site controller
@@ -77,6 +78,22 @@ class SiteController extends Controller
         
         return $this->render('index', [
             'brands' => $brands
+        ]);
+    }
+    
+    public function actionModel()
+    {
+        $models = Model::find()->all();
+        
+        return $this->render('model', [
+            'models' => $models
+        ]);
+    }
+    
+    public function actionRequest()
+    {      
+        return $this->render('request', [
+            //'models' => $models
         ]);
     }
 

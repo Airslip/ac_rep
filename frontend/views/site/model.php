@@ -12,8 +12,10 @@ $this->title = 'Автодилер';
     <div class="body-content">
 
         <div class="row">
-            <?php foreach ($brands as $brand) { ?>
-                <p><a class="btn btn-default" href="<?=Yii::$app->urlManager->createUrl(["site/model", ':brand' => $brand->slug])?>"><?=$brand->name?></a></p>
+            <?php foreach ($models as $model) { ?>
+                <ul>
+                    <li><a href="<?=Yii::$app->urlManager->createUrl(["site/request", ':model' => $model->slug])?>"><?=$model->name?></a></li>
+                </ul>
             <?php } ?>
         </div>
 
