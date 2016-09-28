@@ -12,7 +12,10 @@ $this->title = 'Автодилер';
     <div class="body-content">
 
         <div class="row">
-            Страница модели.
+            <?=$model->name?>
+            <?=$model->photo?>
+            <?=$model->carcase_type?>
+            <?=$model->description?>
         </div>
 
     </div>

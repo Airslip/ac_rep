@@ -83,7 +83,8 @@ class SiteController extends Controller
     
     public function actionModel()
     {
-        $models = Model::find()->all();
+        if(isset($_GET['brand'])) $a = $_GET['brand'];
+        $models = Model::find()->where(['brand' => $a])->all();
         
         return $this->render('model', [
             'models' => $models
@@ -92,8 +93,11 @@ class SiteController extends Controller
     
     public function actionRequest()
     {      
+        if(isset($_GET['model'])) $a = $_GET['model'];
+        $model = Model::find()->where(['name' => $a])->one();
+        
         return $this->render('request', [
-            //'models' => $models
+            'model' => $model
         ]);
     }
 

@@ -25,22 +25,6 @@ class m160926_122922_ac_migration extends Migration
         $hyundai = array('name' => 'Hyundai', 'slug' => 'hyundai', 'logo' => 'logo_hyundai');
         $this->insert('brand', $hyundai);
         
-// Таблица Модель      
-        $this->createTable('{{%model}}', [
-            'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull(),
-            'slug' => $this->string()->notNull(),
-            'photo' => $this->string()->notNull(),
-            'carcase_type' => $this->string()->notNull(),
-            'description' => $this->string()->notNull(),
-            'brand' => $this->string()->notNull(),
-        ], $tableOptions);
-        
-        $logan = array('name' => 'Logan', 'slug' => 'logan', 'photo' => 'photo_logan', 'carcase_type' => 'седан', 'description' => 'Описание', 'brand' => 'Renault');
-        $this->insert('model', $logan);
-        $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'Хэтчбэк', 'description' => 'Описание', 'brand' => 'Renault');
-        $this->insert('model', $sandero);
-        
 // Таблица Кузов     
         $this->createTable('{{%carcase}}', [
             'id' => $this->primaryKey(),
@@ -52,6 +36,27 @@ class m160926_122922_ac_migration extends Migration
         $hatchback = array('name' => 'Хэтчбэк');
         $this->insert('carcase', $hatchback);
         
+// Таблица Модель      
+        $this->createTable('{{%model}}', [
+            'id' => $this->primaryKey(),
+            'name' => $this->string()->notNull(),
+            'slug' => $this->string()->notNull(),
+            'photo' => $this->string()->notNull(),
+            'carcase_type' => $this->string()->notNull(),
+            'description' => $this->string()->notNull(),
+            'brand' => $this->string()->notNull(),
+        ], $tableOptions);
+        
+//        $this->createIndex('FK_model_carcase', '{{%model}}', 'carcase_type');
+//        $this->addForeignKey('FK_model_carcase', '{{%model}}', 'carcase_type', '{{%carcase}}', 'name', 'SET NULL', 'CASCADE');
+//        $this->createIndex('FK_model_brand', '{{%model}}', 'brand');
+//        $this->addForeignKey('FK_model_brand', '{{%model}}', 'brand', '{{%brand}}', 'name', 'SET NULL', 'CASCADE');
+        
+        $logan = array('name' => 'Logan', 'slug' => 'logan', 'photo' => 'photo_logan', 'carcase_type' => 'седан', 'description' => 'Описание', 'brand' => 'Renault');
+        $this->insert('model', $logan);
+        $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'Хэтчбэк', 'description' => 'Описание', 'brand' => 'Renault');
+        $this->insert('model', $sandero);
+        
 // Таблица Заявки  
         $this->createTable('{{%request}}', [
             'id' => $this->primaryKey(),
@@ -61,11 +66,16 @@ class m160926_122922_ac_migration extends Migration
             'model' => $this->string()->notNull(),
         ], $tableOptions);
         
+//        $this->createIndex('FK_request_brand', '{{%request}}', 'brand');
+//        $this->addForeignKey('FK_request_brand', '{{%request}}', 'brand', '{{%brand}}', 'name', 'SET NULL', 'CASCADE');
+//        $this->createIndex('FK_request_model', '{{%request}}', 'model');
+//        $this->addForeignKey('FK_request_model', '{{%request}}', 'model', '{{%model}}', 'name', 'SET NULL', 'CASCADE');
+        
 // Таблица Юзеров     
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
-            'password' => $this->string()->notNull(),
+            'password' => $this->string()->notNull()
         ], $tableOptions);
         
         $admin = array('name' => 'admin', 'password' => 'admin');
