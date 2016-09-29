@@ -123,3 +123,22 @@ a.desc:after {
     text-decoration: none;
     display: inline;   
 }
+
+#car_list {
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+#car_photo {
+    float: left;
+}
+
+#car_info {
+    position: relative;
+    margin-left: 600px;
+}
+
+#info_list li {
+    list-style-type: none;
+}

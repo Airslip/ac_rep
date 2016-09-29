@@ -15,7 +15,7 @@ $this->title = 'Автодилер';
             <h3 id="choose_a">Выберите бренд</h3>
             <ul id="brand_list">
             <?php foreach ($brands as $brand) { ?>
-                <li><a class="btn btn-default" href="<?=Yii::$app->urlManager->createUrl(["site/model", 'brand' => $brand->slug])?>"><img src="images/logo_renault.png"><?=$brand->name?></a></li>
+                <li><a class="btn btn-default" href="<?=Yii::$app->urlManager->createUrl(["site/model", 'brand' => $brand->slug])?>"><img src="images/<?=$brand->logo?>.png" width="156" height="156"></a></li>
             <?php } ?>
             </ul>
         </div>

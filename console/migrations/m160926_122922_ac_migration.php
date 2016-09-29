@@ -48,13 +48,13 @@ class m160926_122922_ac_migration extends Migration
         ], $tableOptions);
         
 //        $this->createIndex('FK_model_carcase', '{{%model}}', 'carcase_type');
-//        $this->addForeignKey('FK_model_carcase', '{{%model}}', 'carcase_type', '{{%carcase}}', 'name', 'SET NULL', 'CASCADE');
+//        $this->addForeignKey('FK_model_carcase', '{{%model}}', 'carcase_type', '{{%carcase}}', 'id', 'SET NULL', 'CASCADE');
 //        $this->createIndex('FK_model_brand', '{{%model}}', 'brand');
-//        $this->addForeignKey('FK_model_brand', '{{%model}}', 'brand', '{{%brand}}', 'name', 'SET NULL', 'CASCADE');
+//        $this->addForeignKey('FK_model_brand', '{{%model}}', 'brand', '{{%brand}}', 'id', 'SET NULL', 'CASCADE');
         
-        $logan = array('name' => 'Logan', 'slug' => 'logan', 'photo' => 'photo_logan', 'carcase_type' => 'седан', 'description' => 'Описание', 'brand' => 'Renault');
+        $logan = array('name' => 'Logan', 'slug' => 'logan', 'photo' => 'photo_logan', 'carcase_type' => 'Cедан', 'description' => 'Оцените выразительный дизайн Renault LOGAN второго поколения. Он превосходно сочетается с легендарной надежностью, безопасностью и вместительностью. А современное оборудование дополняет практичный интерьер.', 'brand' => 'Renault');
         $this->insert('model', $logan);
-        $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'хэтчбэк', 'description' => 'Описание', 'brand' => 'Renault');
+        $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'Xэтчбэк', 'description' => 'Мы много работали над созданием городского автомобиля и гордимся достигнутым результатом. Встречайте Renault SANDERO — компактный и экономичный хетчбэк, который идеально вписывается в условия современного города.', 'brand' => 'Renault');
         $this->insert('model', $sandero);
         
 // Таблица Заявки  

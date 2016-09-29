@@ -29,8 +29,8 @@ class Request extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'brand', 'model'], 'required'],
-            [['name', 'phone', 'brand', 'model'], 'string', 'max' => 255],
+            [['name', 'phone', 'brand', 'model'], 'required', 'message' => 'Не заполнено поле'],
+            //[['name', 'phone', 'brand', 'model'], 'string', 'max' => 255],
         ];
     }
 

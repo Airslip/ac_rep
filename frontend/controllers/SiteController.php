@@ -97,8 +97,14 @@ class SiteController extends Controller
         if(isset($_GET['model'])) $a = $_GET['model'];
         $model = Model::find()->where(['name' => $a])->one();
         
+        $request = new Request();
+        if ($request->load(Yii::$app->request->post()) && $request->save()) {
+            echo "Ваш запрос принят.";
+        }
+        
         return $this->render('request', [
-            'model' => $model
+            'model' => $model,
+            'request' => $request
         ]);
     }
     
