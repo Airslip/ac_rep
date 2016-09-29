@@ -9,6 +9,7 @@ $this->title = 'Автодилер';
 <div class="site-index">
     <div class="jumbotron">
         <h1>Автодилер</h1>
+        <p><?=$message?></p>
     </div>
 
     <div class="body-content">
@@ -22,12 +23,10 @@ $this->title = 'Автодилер';
                 <li><?=$model->description?></li>
             </ul>
         </div>
-        <div>
+        <div id="request_form">
             <?php $f = ActiveForm::begin(); ?>
             <?=$f->field($request, 'name')?>
             <?=$f->field($request, 'phone')?>
-            <?=$f->field($request, 'brand')?>
-            <?=$f->field($request, 'model')?>
             <?= Html::submitButton('Отправить');?>
             <?php ActiveForm::end(); ?>
         </div>

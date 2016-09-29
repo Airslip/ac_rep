@@ -56,12 +56,19 @@ class m160926_122922_ac_migration extends Migration
         $this->insert('model', $logan);
         $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'Xэтчбэк', 'description' => 'Мы много работали над созданием городского автомобиля и гордимся достигнутым результатом. Встречайте Renault SANDERO — компактный и экономичный хетчбэк, который идеально вписывается в условия современного города.', 'brand' => 'Renault');
         $this->insert('model', $sandero);
+        $duster = array('name' => 'Duster', 'slug' => 'duster', 'photo' => 'photo_duster', 'carcase_type' => 'Внедорожник', 'description' => 'Renault DUSTER — безусловный лидер в сегменте внедорожников, доказавший свою надежность, практичность и комфорт. Высокую проходимость по бездорожью обеспечивают новые более мощные двигатели, а современное оборудование поможет всегда оставаться на верном пути. Испытайте его в самых суровых условиях!', 'brand' => 'Renault');
+        $this->insert('model', $duster);
+        
+        $solaris = array('name' => 'Solaris', 'slug' => 'solaris', 'photo' => 'photo_solaris', 'carcase_type' => 'Седан', 'description' => 'Создан специально для России. Создан быть лидером. Многочисленные опции подобраны таким образом, чтобы максимально удовлетворить потребности российских автомобилистов. Мы остались верны наследию любимого автомобиля и создали новый, но уже такой родной Solaris.', 'brand' => 'Hyundai');
+        $this->insert('model', $solaris);
+        $creta = array('name' => 'Creta', 'slug' => 'creta', 'photo' => 'photo_creta', 'carcase_type' => 'Кроссовер', 'description' => 'Дизайн, пробуждающий эмоции, больше динамики и комфорта для тех, кто не боится перемен. Все, что Вы ждете от автомобиля, воплощено в Hyundai Creta.', 'brand' => 'Hyundai');
+        $this->insert('model', $creta);
         
 // Таблица Заявки  
         $this->createTable('{{%request}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
-            'phone' => $this->string()->notNull(),
+            'phone' => $this->integer()->notNull(),
             'brand' => $this->string()->notNull(),
             'model' => $this->string()->notNull(),
         ], $tableOptions);

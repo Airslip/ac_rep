@@ -131,14 +131,20 @@ a.desc:after {
 }
 
 #car_photo {
-    float: left;
+    float:left;
+    position: left;
 }
 
 #car_info {
     position: relative;
+    height: 400px;
     margin-left: 600px;
 }
 
 #info_list li {
     list-style-type: none;
+}
+
+#request_form {
+    margin-top: 30px;
 }

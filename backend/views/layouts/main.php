@@ -48,10 +48,10 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
-            $menuItems[] = ['label' => 'Brands', 'url' => ['/brand']];
-            $menuItems[] = ['label' => 'Models', 'url' => ['/model']];
-            $menuItems[] = ['label' => 'Carcases', 'url' => ['/carcase']];
-            $menuItems[] = ['label' => 'Requests', 'url' => ['/request']];
+            $menuItems[] = ['label' => 'Марки', 'url' => ['/brand']];
+            $menuItems[] = ['label' => 'Модели', 'url' => ['/model']];
+            $menuItems[] = ['label' => 'Кузова', 'url' => ['/carcase']];
+            $menuItems[] = ['label' => 'Заявки', 'url' => ['/request']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

@@ -29,8 +29,9 @@ class Request extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'brand', 'model'], 'required', 'message' => 'Не заполнено поле'],
-            //[['name', 'phone', 'brand', 'model'], 'string', 'max' => 255],
+            [['name', 'phone'], 'required', 'message' => 'Не заполнено поле'],
+            [['name', 'brand', 'model'], 'string', 'max' => 255],
+            [['phone'], 'integer'],
         ];
     }
 
@@ -41,10 +42,10 @@ class Request extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'phone' => 'Phone',
-            'brand' => 'Brand',
-            'model' => 'Model',
+            'name' => 'Имя',
+            'phone' => 'Телефон',
+            'brand' => 'Марка',
+            'model' => 'Модель',
         ];
     }
 }

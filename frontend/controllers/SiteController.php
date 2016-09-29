@@ -98,13 +98,18 @@ class SiteController extends Controller
         $model = Model::find()->where(['name' => $a])->one();
         
         $request = new Request();
+        $request->brand = $model->brand;
+        $request->model = $model->name;
         if ($request->load(Yii::$app->request->post()) && $request->save()) {
-            echo "Ваш запрос принят.";
+            $message = "Ваш запрос принят.";
+        } else {
+            $message = '';
         }
         
         return $this->render('request', [
             'model' => $model,
-            'request' => $request
+            'request' => $request,
+            'message' => $message
         ]);
     }
     
