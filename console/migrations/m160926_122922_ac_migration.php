@@ -24,6 +24,8 @@ class m160926_122922_ac_migration extends Migration
         $this->insert('brand', $renault);
         $hyundai = array('name' => 'Hyundai', 'slug' => 'hyundai', 'logo' => 'logo_hyundai');
         $this->insert('brand', $hyundai);
+        $peugeot = array('name' => 'Peugeot', 'slug' => 'peugeot', 'logo' => 'logo_peugeot');
+        $this->insert('brand', $peugeot);
         
 // Таблица Кузов     
         $this->createTable('{{%carcase}}', [
@@ -51,7 +53,8 @@ class m160926_122922_ac_migration extends Migration
 //        $this->addForeignKey('FK_model_carcase', '{{%model}}', 'carcase_type', '{{%carcase}}', 'id', 'SET NULL', 'CASCADE');
 //        $this->createIndex('FK_model_brand', '{{%model}}', 'brand');
 //        $this->addForeignKey('FK_model_brand', '{{%model}}', 'brand', '{{%brand}}', 'id', 'SET NULL', 'CASCADE');
-        
+
+// Renault
         $logan = array('name' => 'Logan', 'slug' => 'logan', 'photo' => 'photo_logan', 'carcase_type' => 'Cедан', 'description' => 'Оцените выразительный дизайн Renault LOGAN второго поколения. Он превосходно сочетается с легендарной надежностью, безопасностью и вместительностью. А современное оборудование дополняет практичный интерьер.', 'brand' => 'Renault');
         $this->insert('model', $logan);
         $sandero = array('name' => 'Sandero', 'slug' => 'sandero', 'photo' => 'photo_sandero', 'carcase_type' => 'Xэтчбэк', 'description' => 'Мы много работали над созданием городского автомобиля и гордимся достигнутым результатом. Встречайте Renault SANDERO — компактный и экономичный хетчбэк, который идеально вписывается в условия современного города.', 'brand' => 'Renault');
@@ -59,10 +62,15 @@ class m160926_122922_ac_migration extends Migration
         $duster = array('name' => 'Duster', 'slug' => 'duster', 'photo' => 'photo_duster', 'carcase_type' => 'Внедорожник', 'description' => 'Renault DUSTER — безусловный лидер в сегменте внедорожников, доказавший свою надежность, практичность и комфорт. Высокую проходимость по бездорожью обеспечивают новые более мощные двигатели, а современное оборудование поможет всегда оставаться на верном пути. Испытайте его в самых суровых условиях!', 'brand' => 'Renault');
         $this->insert('model', $duster);
         
+// Hyundai
         $solaris = array('name' => 'Solaris', 'slug' => 'solaris', 'photo' => 'photo_solaris', 'carcase_type' => 'Седан', 'description' => 'Создан специально для России. Создан быть лидером. Многочисленные опции подобраны таким образом, чтобы максимально удовлетворить потребности российских автомобилистов. Мы остались верны наследию любимого автомобиля и создали новый, но уже такой родной Solaris.', 'brand' => 'Hyundai');
         $this->insert('model', $solaris);
         $creta = array('name' => 'Creta', 'slug' => 'creta', 'photo' => 'photo_creta', 'carcase_type' => 'Кроссовер', 'description' => 'Дизайн, пробуждающий эмоции, больше динамики и комфорта для тех, кто не боится перемен. Все, что Вы ждете от автомобиля, воплощено в Hyundai Creta.', 'brand' => 'Hyundai');
         $this->insert('model', $creta);
+        
+// Peugeot
+        $p308 = array('name' => '308', 'slug' => '308', 'photo' => 'photo_p308', 'carcase_type' => 'Хэтчбэк', 'description' => 'Новый Peugeot 308 удостоен престижного титула Автомобиль Года 2014 в Европе. Новый Peugeot 308 выделяется высоким уровнем качества, обладает огромным количеством инновационных технологий и открывает новые горизонты в дизайне автомобилей. ', 'brand' => 'Peugeot');
+        $this->insert('model', $p308);
         
 // Таблица Заявки  
         $this->createTable('{{%request}}', [
