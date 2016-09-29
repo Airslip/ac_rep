@@ -27,7 +27,7 @@ $this->title = 'Автодилер';
             <?php $f = ActiveForm::begin(); ?>
             <?=$f->field($request, 'name')?>
             <?=$f->field($request, 'phone')?>
-            <?= Html::submitButton('Отправить');?>
+            <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']);?>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
