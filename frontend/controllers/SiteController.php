@@ -84,7 +84,8 @@ class SiteController extends Controller
     
     public function actionModel()
     {
-        if(isset($_GET['brand'])) $a = $_GET['brand'];
+        $request_g = Yii::$app->request;
+        $a = $request_g->get('brand');
         $models = Model::find()->where(['brand' => $a])->all();
         
         return $this->render('model', [
@@ -94,7 +95,8 @@ class SiteController extends Controller
     
     public function actionRequest()
     {      
-        if(isset($_GET['model'])) $a = $_GET['model'];
+        $request_g = Yii::$app->request;
+        $a = $request_g->get('model');
         $model = Model::find()->where(['name' => $a])->one();
         
         $request = new Request();

@@ -14,7 +14,7 @@ $this->title = 'Автодилер';
 
     <div class="body-content">
         <div id="car_photo">
-            <img src="images/<?=$model->photo?>.jpg" width="520" height="400">
+            <img src="../images/<?=$model->photo?>.jpg" width="520" height="400">
         </div>
         <div id="car_info">
             <ul id="info_list">
