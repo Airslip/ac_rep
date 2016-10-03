@@ -50,7 +50,7 @@ return [
                         'route' => 'site/model',
                 ],
                 [
-                        'pattern' => 'request/<model:\w+>',
+                        'pattern' => '<brand:\w+>/<model:\w+>',
                         'route' => 'site/request',
                 ],
             ],

@@ -84,12 +84,18 @@ class SiteController extends Controller
     
     public function actionModel()
     {
+        // Ищем бренд
         $request_g = Yii::$app->request;
         $a = $request_g->get('brand');
-        $models = Model::find()->where(['brand' => $a])->all();
+        $brand = Brand::find()->where(['name' => $a])->one();
+        // Ищем модель по бренду
+        $request_g1 = Yii::$app->request;
+        $a1 = $request_g1->get('brand');
+        $models = Model::find()->where(['brand' => $a1])->all();
         
         return $this->render('model', [
-            'models' => $models
+            'models' => $models,
+            'brand' => $brand,
         ]);
     }
     

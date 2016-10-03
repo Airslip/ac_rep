@@ -14,7 +14,7 @@ $this->title = 'Автодилер';
         <div class="row">
             <?php foreach ($models as $model) { ?>
                 <ul id="car_list">
-                    <li><a href="<?=Yii::$app->urlManager->createUrl(["site/request", 'model' => $model->name])?>"><?=$model->name?></a></li>
+                    <li><a href="<?=Yii::$app->urlManager->createUrl(["site/request",'brand' => $brand->slug, 'model' => $model->slug])?>"><?=$model->name?></a></li>
                 </ul>
             <?php } ?>
         </div>
