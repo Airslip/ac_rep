@@ -1,11 +1,9 @@
 RewriteEngine on
-# Если директория или файл созданы, то не использовать правила
-# а обращаться к файлу напрямую
-# для картинок например
+
 Options +FollowSymLinks
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule . web/index.php
-#RewriteRule ^model/([0-9a-z]+)/?$ views/site/model.php?brand=$1
-RewriteRule ^model/ ../views/site/model.php
+RewriteRule . web/index.php [QSA,L]
+#RewriteRule ^model/([0-9a-z]+)/?$ views/site/model.php?brand=$1 [QSA,L]
+#RewriteRule ^site/model/([0-9a-z]+)/?$ frontend/views/site/model.php?brand=$1 [QSA,L]

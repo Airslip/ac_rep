@@ -41,6 +41,18 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                        'pattern' => '',
+                        'route' => 'site/index',
+                ],
+                [
+                        'pattern' => '<brand:\w+>',
+                        'route' => 'site/model',
+                ],
+                [
+                        'pattern' => 'request/<model:\w+>',
+                        'route' => 'site/request',
+                ],
             ],
         ],
         
