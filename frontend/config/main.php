@@ -46,11 +46,11 @@ return [
                         'route' => 'site/index',
                 ],
                 [
-                        'pattern' => '<brand:\w+>',
+                        'pattern' => 'B-<brand:\w+>',
                         'route' => 'site/model',
                 ],
                 [
-                        'pattern' => '<brand:\w+>/<model:\w+>',
+                        'pattern' => 'B-<brand:\w+>/M-<model:\w+>',
                         'route' => 'site/request',
                 ],
             ],
