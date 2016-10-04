@@ -46,12 +46,20 @@ return [
                         'route' => 'site/index',
                 ],
                 [
-                        'pattern' => 'B-<brand:\w+>',
+                        'pattern' => 'catalog/<brand:\w+>',
                         'route' => 'site/model',
                 ],
                 [
-                        'pattern' => 'B-<brand:\w+>/M-<model:\w+>',
+                        'pattern' => 'catalog/<brand:\w+>/<model:\w+>',
                         'route' => 'site/request',
+                ],
+                [
+                        'pattern' => 'login',
+                        'route' => 'site/login',
+                ],
+                [
+                        'pattern' => 'signup',
+                        'route' => 'site/signup',
                 ],
             ],
         ],
