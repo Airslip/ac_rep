@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -33,3 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+
+<?php $f = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+    <?=$f->field($form, 'file')->fileinput()?>
+    <?= Html::submitButton('Отправить');?>
+<?php ActiveForm::end(); ?>

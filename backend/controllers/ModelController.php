@@ -4,11 +4,16 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Model;
+use common\models\FileUpload;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+
+use Imagine\Image\Box;
+use Imagine\Image\Point;
 
 /**
  * ModelController implements the CRUD actions for Model model.
@@ -53,8 +58,28 @@ class ModelController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Model::find(),
         ]);
+        
+        $form = new FileUpload();
+        if ($form->load(Yii::$app->request->post()) && $form->validate()) {
+            
+            $form->file = UploadedFile::getInstance($form, 'file');
+            $form->file->saveAs('../../frontend/web/images/'.$form->file->baseName.".".$form->file->extension);
+            
+            // Обработка изображения
+            $imagine = new Imagine\Gd\Imagine();
+            // w1000/h500 = 2  w500/X  X=w500/2
+            $image = $imagine->open('../../frontend/web/images/'.$form->file->baseName.".".$form->file->extension);
+            $size = $image->getSize();
+            $w = $size->getWidth();
+            $h = $size->getHeight();
+            $new_w = 500;
+            $new_h = $new_w/($w/$h);
+            $image->resize(new Box($new_w, $new_h))
+               ->save('../../frontend/web/images/imageRES.jpg');
+        }
 
         return $this->render('index', [
+            'form' => $form,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -66,6 +91,7 @@ class ModelController extends Controller
      */
     public function actionView($id)
     {
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
