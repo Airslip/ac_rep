@@ -14,6 +14,7 @@ use yii\filters\AccessControl;
 
 use Imagine\Image\Box;
 use Imagine\Image\Point;
+use Imagine\Gd\Imagine;
 
 /**
  * ModelController implements the CRUD actions for Model model.
@@ -66,7 +67,7 @@ class ModelController extends Controller
             $form->file->saveAs('../../frontend/web/images/'.$form->file->baseName.".".$form->file->extension);
             
             // Обработка изображения
-            $imagine = new Imagine\Gd\Imagine();
+            $imagine = new Imagine();
             // w1000/h500 = 2  w500/X  X=w500/2
             $image = $imagine->open('../../frontend/web/images/'.$form->file->baseName.".".$form->file->extension);
             $size = $image->getSize();
@@ -75,7 +76,7 @@ class ModelController extends Controller
             $new_w = 500;
             $new_h = $new_w/($w/$h);
             $image->resize(new Box($new_w, $new_h))
-               ->save('../../frontend/web/images/imageRES.jpg');
+               ->save('../../frontend/web/images/'.$form->file->baseName.".".$form->file->extension);
         }
 
         return $this->render('index', [
